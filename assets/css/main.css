@@ -2427,7 +2427,20 @@ a.playlist_expander{
 }
 }
 
+/*CSS STYLES for w3school schrolling testing*/
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 
+/*.sticky + .content {
+  padding-top: 60px;
+}*/
+
+#sticktop {
+	overflow: hidden;
+}
 
 
 

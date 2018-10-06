@@ -35,33 +35,24 @@ jQuery(function($){
 	2-Navigation
 	=======================================*/
 	
-	if(isStickyNav!="false"){NavOffset=naviheight + 10;}
-	if(isStickyPlayer!="false"){NavOffset=playerHeight+10;}
-	if(isStickyNav!="false" && isStickyPlayer!="false"){NavOffset=naviheight+playerHeight+10;}	
-	$('body').attr('data-offset',NavOffset+10);
 	
-    $(".navbar-nav a[href^='#'],.ScrollTo,.btn-scroll").click(function (e) {
-		e.preventDefault();
-        $('html, body').stop().animate({scrollTop: $($.attr(this, 'href')).offset().top - NavOffset}, 1000,"swing");
-    });
-	
-	
-	if($winWidth>700){
-	  // if($(".sticky_player").attr('data-sticky')!="false"){navTopSpace=playerHeight;}
-	  if(isStickyNav!="false"){
-		  $("#sticktop").sticky({topSpacing:navTopSpace});
-		}  
-	  // if($(".sticky_player").attr('data-sticky')!="false"){
-		 //  $(".sticky_player").sticky({topSpacing: 0});
-	  // }
-	  $('#sticktop').on('sticky-start', function() {
-		  if($(".sticky_player").attr('data-sticky')!="false")
-		  $('.rock_player').removeClass('pre_sticky');
-	  });
-	  $('#sticktop').on('sticky-end', function() {
-		  if($(".sticky_player").attr('data-sticky')!="false")
-		  $('.rock_player').addClass('pre_sticky');
-	  });  
-	}
     
+
+	 // >>>>>>>>>>>>> sticky scrollbar >>>>>>>>>>>>>>>  //
+
+	 window.onscroll = function() {myFunction()};
+
+	 var navbar = document.getElementById("sticktop");
+	 var sticky = navbar.offsetTop;
+
+	 function myFunction() {
+	 	if (window.pageYOffset >= sticky) {
+	 		navbar.classList.add("sticky")
+	 	} else {
+	 		navbar.classList.remove("sticky");
+	 	}
+	 }
+
+
+
 });
